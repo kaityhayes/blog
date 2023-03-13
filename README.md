@@ -1,4 +1,4 @@
-# blog.io
+# blog
 Kaity's full-stack blog app 
 
 My app will be heavily inspired by blogs that I have used personally in the past. 
