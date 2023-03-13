@@ -2,10 +2,10 @@
 Kaity's full-stack blog app 
 
 My app will be heavily inspired by blogs that I have used personally in the past. 
-Featuring a nav bar with links to homepage, where "everyones" blog posts will be visible
-a profile link where all your personal blog posts can be viewed, along with user information
-you will be able to create a new post from the nav bar which can then be viewed on the homepage and user page
-edit/delete buttons will only be available once clicked on individual post and taken to that posts id page
+Featuring a nav bar with links to homepage, where "everyones" blog posts will be visible.
+A profile link where all your personal blog posts can be viewed, along with user information.
+You will be able to create a new post from the nav bar which can then be viewed on the homepage and user page.
+Edit/Delete buttons will only be available once clicked on individual post and taken to that posts id page.
 
 *least important* I would like to attempt to incorporate a settings page where color changes can be implemented 
 
@@ -38,7 +38,7 @@ User stories:
 "When I was a kid, I used a diary. Now, in 2023, in use my computer to write everything down. Having a site where I can quickly log on and jot down some quick ideas is very helpful! Thanks, [insert blog name]!"
 
 Milestones:
-Day 1- accomplish wireframing and github repo, as well as beginning efforts of seed file
-Day 2- begin all CRUD routes, get them organized and operating
-Day 3- stylesheets and styling of app pages 
+Day 1- accomplish wireframing and github repo, as well as beginning efforts of seed file.
+Day 2- begin all CRUD routes, get them organized and operating.
+Day 3- stylesheets and styling of app pages. 
 
