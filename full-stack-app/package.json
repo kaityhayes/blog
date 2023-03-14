@@ -1,14 +1,19 @@
 {
-  "name": "views",
+  "name": "full-stack-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.ejs",
+  "description": "Kaity's full-stack blog app",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^7.0.1"
   }
 }
