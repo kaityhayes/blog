@@ -27,21 +27,33 @@ app.use(bodyParser.urlencoded({extended: true}))
 // })
 
 
+app.get('/profile', (req, res) => {
+    Blog.find({}).then((allBlog) =>
+    {res.render('show.ejs', { 
+    Blog: allBlog
+})
+})
+})
 
-app.post('/blog', (req, res) => {
+app.get('/profile', (req, res) => {
+    res.render('show.ejs', {ledger: Blog})
+})
+
+
+
+
+//edit
+app.get('/posts', (req, res) => {
+    res.render('edit.ejs', {ledger: Blog})
+})
+
+app.post('/posts', (req, res) => {
     //   console.log(req.body)
     Blog.create(req.body).then(() => {
           res.redirect('/blog')
     })
     })
 
-// app.get('/blog', (req, res) => {
-//     Blog.create(req.body).then((createdBlog) => {
-//       console.log(createdBlog)
-//     }).catch((error) => {
-//       console.log(error)
-//     })
-//   })
 
 //index
 app.get('/', (req, res) => {
@@ -49,29 +61,27 @@ app.get('/', (req, res) => {
 })
 
 //show
-app.get('/homepage', (req, res) => { 
-    res.render('show.ejs', {ledger: Blog[req.params.index]})
+app.get('/settings', (req, res) => { 
+    res.render('new.ejs', {ledger: Blog[req.params.index]})
     })
 
-//edit 
-app.get('/edit', (req, res) => {
-    res.render('edit.ejs', {ledger: Blog})
-})
+
+
+//delete
+app.delete('/Blog/:id', (req, res) => {
+    Blog.findByIdAndRemove(req.params.id).then(() => {
+       res.redirect('/')
+    })
+  })
 
 //create
-app.post('/post', (req, res) => {
-    const postData = new Blog(req.body)
-postData.save().then(result => {
-    res.redirect('/')
-}) .catch(err => {
-    res.status(400).send("Error")
-}) })
-
 app.get('/', (req, res) => {
     Blog.find({}, (err, posts) => {
         res.render('/index.ejs', {Blog: posts})
     })
 })
+
+
 
 
 mongoose.connect('mongodb://localhost:27017/basiccrud').then(() => {
