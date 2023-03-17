@@ -18,6 +18,7 @@ html {
 
 body {
   margin: 0;
+
 }
 
 /* HTML5 display definitions
@@ -40,10 +41,11 @@ header,
 hgroup,
 main,
 menu,
-nav,
 section,
-summary {
+summary,
+nav {
   display: block;
+
 }
 
 /**
@@ -257,6 +259,7 @@ textarea {
   color: inherit; /* 1 */
   font: inherit; /* 2 */
   margin: 0; /* 3 */
+ 
 }
 
 /**
@@ -265,6 +268,7 @@ textarea {
 
 button {
   overflow: visible;
+
 }
 
 /**
@@ -277,6 +281,7 @@ button {
 button,
 select {
   text-transform: none;
+  justify-content: center;
 }
 
 /**
@@ -293,6 +298,7 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button; /* 2 */
   cursor: pointer; /* 3 */
+justify-content: center;
 }
 
 /**
@@ -301,7 +307,8 @@ input[type="submit"] {
 
 button[disabled],
 html input[disabled] {
-  cursor: default;
+  cursor: pointer;
+  size: small;
 }
 
 /**
@@ -312,6 +319,7 @@ button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
+
 }
 
 /**
@@ -425,3 +433,67 @@ td,
 th {
   padding: 0;
 }
+
+.header {
+  font-family: 'Pacifico', cursive;
+  position: center;
+}
+
+.container-nav, nav {
+  position: sticky !important;
+  position: fixed !important;
+}
+
+.square-box {
+  max-width: 600px;
+  min-width: 200px;
+  border: 1px solid black;
+}
+
+:root {
+  color-scheme: light dark; 
+}
+
+
+
+/* dark mode */
+body{
+  padding:10% 3% 10% 3%;
+  text-align:center;
+  }
+  img {
+      height:140px;
+          width:140px; 
+
+  }
+  
+  .mode {
+      float:right;
+  }
+  .change {
+      cursor: pointer;
+      border: 1px solid #555;
+      border-radius: 40%;
+      width: 20px;
+      text-align: center;
+      padding: 5px;
+      margin-left: 8px;
+  }
+  
+  .dark{
+      background-color: #222;
+      color: #e6e6e6;
+  }
+ 
+  .dark, .navbar-brand {
+      color: white;
+  }
+  .change .navbar-brand {
+      color: black;
+  }
+  h3 {
+      text-align: center;
+  }
+
+
+  /* end dark mode */

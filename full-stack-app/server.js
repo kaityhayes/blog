@@ -8,7 +8,6 @@ const Blog = require('./models/blogposts.js')
 const bodyParser = require('body-parser')
 //body parser so that our application can parse the post data body
 
-
 module.exports = express()
 
 app.use(express.static('public'))
@@ -27,13 +26,19 @@ app.use(bodyParser.urlencoded({extended: true}))
 // })
 
 
-app.get('/profile', (req, res) => {
-    Blog.find({}).then((allBlog) =>
-    {res.render('show.ejs', { 
-    Blog: allBlog
-})
-})
-})
+//delete
+app.delete('/blog/:id', (req, res) => {
+    Blog.findByIdAndRemove(req.params.id).then((error, allBlog) => {
+          if (error) {
+          console.log(error) 
+          } else {
+              console.log(deleted)
+          }
+      })
+  })
+
+
+
 
 app.get('/profile', (req, res) => {
     res.render('show.ejs', {ledger: Blog})
@@ -47,6 +52,14 @@ app.get('/posts', (req, res) => {
     res.render('edit.ejs', {ledger: Blog})
 })
 
+app.put('/posts/:id', (req, res) => {
+Blog.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((updatedBlog) => {
+    res.redirect('/posts')
+})
+})
+ 
+
+
 app.post('/posts', (req, res) => {
     //   console.log(req.body)
     Blog.create(req.body).then(() => {
@@ -57,22 +70,20 @@ app.post('/posts', (req, res) => {
 
 //index
 app.get('/', (req, res) => {
-    res.render('index.ejs', {ledger: Blog})
+    Blog.find({}).then((allBlog) =>
+    {res.render('index.ejs', { 
+    Blog: allBlog,
+})
+})
 })
 
 //show
 app.get('/settings', (req, res) => { 
     res.render('new.ejs', {ledger: Blog[req.params.index]})
-    })
+    }) 
 
 
 
-//delete
-app.delete('/Blog/:id', (req, res) => {
-    Blog.findByIdAndRemove(req.params.id).then(() => {
-       res.redirect('/')
-    })
-  })
 
 //create
 app.get('/', (req, res) => {
@@ -84,10 +95,10 @@ app.get('/', (req, res) => {
 
 
 
-mongoose.connect('mongodb://localhost:27017/basiccrud').then(() => {
+mongoose.connect('mongodb://localhost:27017/blog').then(() => {
     console.log('mongoose listening...')
 })
 
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log('express listening...')
 })
