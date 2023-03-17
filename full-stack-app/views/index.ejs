@@ -39,20 +39,7 @@
         <h1 class="text-center">Welcome to your Homepage!</h1>
     </div>
   <br />
-<body>
-    <div class="container square-box d-flex justify-content-center">
-    <form action="/posts" method="POST">
-     title: <input type="text" name="title">
-     <br />
-     body: <input type="text" name="description">
-     <br />
-     tags: <input type="text" name="tags">
-     <br />
-       
-      <input type="submit" value="Add Post"/>
-    </form>
-</div>
-</body>
+
 
 <div class="container square-box d-flex justify-content-center">
     <ul class="list-unstyled">
@@ -65,14 +52,18 @@
             </div>
             <br /><br />
             <p>tags:</p><a href="/posts/<%=Blog[i]._id%>"><%=Blog[i].tags%></a> <i class="glyphicon glyphicon-thumbs-up"></i>
+           <div class="delete">
             <a href="/posts/<%=Blog[i]._id%>"><%=Blog[i].likes%></a>
-                <form action="/<%=Blog[i].id%>?_method=DELETE" method="POST">
+                <form action="/<%=Blog[i]._id%>?_method=DELETE" method="POST">
                     <input type="submit" value="DELETE">
+                </div>
             </li>
              <li>
+                <div class="edit">
               <form action="/posts/<%=Blog[i]._id%>?_method=PUT" method="PUT">
                   <input type="submit" value="EDIT">
                 </form>
+            </div>
           </li>
         <%}%>
       </ul>

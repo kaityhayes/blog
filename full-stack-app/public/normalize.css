@@ -458,42 +458,50 @@ th {
 
 /* dark mode */
 body{
-  padding:10% 3% 10% 3%;
+   padding:10% 3% 10% 3%;
   text-align:center;
-  }
-  img {
-      height:140px;
-          width:140px; 
-
-  }
+ }
+ img {
+  height:140px;
+  width:140px; 
+}
   
-  .mode {
-      float:right;
-  }
-  .change {
-      cursor: pointer;
-      border: 1px solid #555;
-      border-radius: 40%;
-      width: 20px;
-      text-align: center;
-      padding: 5px;
-      margin-left: 8px;
-  }
+.mode {
+  float:right;
+}
   
-  .dark{
-      background-color: #222;
-      color: #e6e6e6;
-  }
+.change {
+ cursor: pointer;
+ border: 1px solid #555;
+ border-radius: 40%;
+ width: 20px;
+ text-align: center;
+ padding: 5px;
+ margin-left: 8px;
+}
+  
+.dark {
+background-color: #222;
+color: #e6e6e6;
+color: white;
+}
  
-  .dark, .navbar-brand {
-      color: white;
-  }
-  .change .navbar-brand {
-      color: black;
-  }
-  h3 {
-      text-align: center;
-  }
+.navbar {
+color: white;
+}
+
+.change .navbar {
+color: black;
+}
+  
+h3 {
+text-align: center;
+}
 
 
   /* end dark mode */
+
+.images {
+align-items: center;
+display: flex !important;
+}

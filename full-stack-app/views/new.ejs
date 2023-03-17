@@ -40,18 +40,12 @@
 
 <body>
 <div class="mode">
-    Dark mode:             
-    <span class="change">OFF</span>
-</div>
-  
+     Dark mode:             
+<span class="change">OFF</span>
+</div> 
 <div>
-
-
-    <h3>Light Mode | Dark Mode</h3>
-
-    <img src=
-"https://i.imgur.com/WVqmhxX.jpg">
-
+<h3>Light Mode | Dark Mode</h3>
+<img src="https://i.imgur.com/WVqmhxX.jpg">
 </div>
   <style>
     /* dark mode */
@@ -77,18 +71,17 @@ body{
       padding: 5px;
       margin-left: 8px;
   }
+
+  .change .navbar {
+      color: black;
+  }
   
   .dark{
       background-color: #222;
       color: #e6e6e6;
   }
- 
-  .dark, .navbar-brand {
-      color: white;
-  }
-  .change .navbar-brand {
-      color: black;
-  }
+
+
   h3 {
       text-align: center;
   }
@@ -113,10 +106,14 @@ body{
 </body>
 
 </html>           
-
-
-
 <body>
-    
+    <form action="/settings" method="post">
+        username:<br>
+        <input type="text" name="username" placeholder="username" required><br><br>
+        password:<br>
+        <input type="password" name="password" placeholder="password" required><br><br>
+        <input type="submit" value="login">
+    </form>
+
 </body>
 </html>

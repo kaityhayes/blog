@@ -37,11 +37,26 @@
     </header>
 
     <div class="container square-box d-flex justify-content-center">
-<p>all of your posts: </p><br />
+<p>create a new post:</p><br />
 </div>
 
 
 <body>
-    
+   
+    <body>
+        <div class="container square-box d-flex justify-content-center">
+        <form action="/posts" method="POST">
+         title: <input type="text" name="title">
+         <br />
+         body: <input type="text" name="description">
+         <br />
+         tags: <input type="text" name="tags">
+         <br />
+           
+          <input type="submit" value="Add Post"/>
+        </form>
+    </div>
+    </body>
+       
 </body>
 </html>

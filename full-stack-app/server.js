@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 
 //delete
-app.delete('/blog/:id', (req, res) => {
+app.delete('/:id', (req, res) => {
     Blog.findByIdAndRemove(req.params.id).then((error, allBlog) => {
           if (error) {
           console.log(error) 
@@ -52,7 +52,7 @@ app.get('/posts', (req, res) => {
     res.render('edit.ejs', {ledger: Blog})
 })
 
-app.put('/posts/:id', (req, res) => {
+app.put('/:id', (req, res) => {
 Blog.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((updatedBlog) => {
     res.redirect('/posts')
 })
