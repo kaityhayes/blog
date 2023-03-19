@@ -51,17 +51,21 @@
             <a="/posts/<%=Blog[i]._id%>"><%=Blog[i].description%></a>
             </div>
             <br /><br />
-            <p>tags:</p><a href="/posts/<%=Blog[i]._id%>"><%=Blog[i].tags%></a> <i class="glyphicon glyphicon-thumbs-up"></i>
+            <p>tags:</p><a href="/posts/<%=Blog[i]._id%>"><%=Blog[i].tags%></a> 
+            <p>&#128077 likes: <a href="/posts/<%=Blog[i]._id%>"><%=Blog[i].likes%></a> </p>
            <div class="delete">
-            <a href="/posts/<%=Blog[i]._id%>"><%=Blog[i].likes%></a>
                 <form action="/<%=Blog[i]._id%>?_method=DELETE" method="POST">
                     <input type="submit" value="DELETE">
                 </div>
             </li>
              <li>
+                body: <input type="text" name="description">
+                <br />
                 <div class="edit">
-              <form action="/posts/<%=Blog[i]._id%>?_method=PUT" method="PUT">
+              <form action="/posts/<%=Blog[i]._id%>?_method=EDIT" method="POST">
                   <input type="submit" value="EDIT">
+                  <br /><br /><br />
+                  <p class="divider">-------------------------------------------------------------------------------------------</p>
                 </form>
             </div>
           </li>
@@ -82,5 +86,6 @@
             }
         });
     </script>
+         <br />  <footer> unit 2 project, kaity hayes 2023 </footer>
 </body>
 </html>

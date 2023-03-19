@@ -459,15 +459,15 @@ th {
 /* dark mode */
 body{
    padding:10% 3% 10% 3%;
-  text-align:center;
+  text-align: center;
  }
  img {
-  height:140px;
-  width:140px; 
+  height: 140px;
+  width: 140px; 
 }
   
 .mode {
-  float:right;
+  float: right;
 }
   
 .change {
@@ -493,10 +493,6 @@ color: white;
 .change .navbar {
 color: black;
 }
-  
-h3 {
-text-align: center;
-}
 
 
   /* end dark mode */
@@ -504,4 +500,8 @@ text-align: center;
 .images {
 align-items: center;
 display: flex !important;
+}
+
+.list-unstyled, .divider, footer, p, h3 {
+  text-align: center;
 }

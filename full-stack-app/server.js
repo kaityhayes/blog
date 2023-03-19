@@ -8,6 +8,8 @@ const Blog = require('./models/blogposts.js')
 const bodyParser = require('body-parser')
 //body parser so that our application can parse the post data body
 
+
+
 module.exports = express()
 
 app.use(express.static('public'))
@@ -18,7 +20,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
-//seed
+// seed
 // app.get('/seed', (req, res) => {
 //         Blog.create(Seed).then((data) => {
 //                 res.send(data)
@@ -26,13 +28,25 @@ app.use(bodyParser.urlencoded({extended: true}))
 // })
 
 
+app.get('/posts', (req, res) => {
+    res.render('edit.ejs')
+})
+
+app.put('/:id', (req, res) => {
+Blog.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((updatedBlog) => {
+    res.redirect('/')
+})
+})
+
+
+
+
 //delete
 app.delete('/:id', (req, res) => {
     Blog.findByIdAndRemove(req.params.id).then((error, allBlog) => {
           if (error) {
           console.log(error) 
-          } else {
-              console.log(deleted)
+  res.redirect('/')
           }
       })
   })
@@ -47,23 +61,14 @@ app.get('/profile', (req, res) => {
 
 
 
-//edit
-app.get('/posts', (req, res) => {
-    res.render('edit.ejs', {ledger: Blog})
-})
 
-app.put('/:id', (req, res) => {
-Blog.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((updatedBlog) => {
-    res.redirect('/posts')
-})
-})
  
 
 
 app.post('/posts', (req, res) => {
     //   console.log(req.body)
     Blog.create(req.body).then(() => {
-          res.redirect('/blog')
+          res.redirect('/posts')
     })
     })
 
@@ -88,8 +93,9 @@ app.get('/settings', (req, res) => {
 //create
 app.get('/', (req, res) => {
     Blog.find({}, (err, posts) => {
-        res.render('/index.ejs', {Blog: posts})
+        res.render('/posts', {Blog: posts})
     })
+    res.redirect('/')
 })
 
 
