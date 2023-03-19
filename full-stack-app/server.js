@@ -28,16 +28,17 @@ app.use(bodyParser.urlencoded({extended: true}))
 // })
 
 
+
+//edit 
 app.get('/posts', (req, res) => {
     res.render('edit.ejs')
 })
 
 app.put('/:id', (req, res) => {
-Blog.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((updatedBlog) => {
+Blog.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((allBlog) => {
     res.redirect('/')
 })
 })
-
 
 
 
@@ -54,26 +55,22 @@ app.delete('/:id', (req, res) => {
 
 
 
+  //profile page
 app.get('/profile', (req, res) => {
     res.render('show.ejs', {ledger: Blog})
 })
 
 
 
-
-
- 
-
-
+//posts page
 app.post('/posts', (req, res) => {
-    //   console.log(req.body)
     Blog.create(req.body).then(() => {
           res.redirect('/posts')
     })
     })
 
 
-//index
+//homepage
 app.get('/', (req, res) => {
     Blog.find({}).then((allBlog) =>
     {res.render('index.ejs', { 
@@ -82,7 +79,7 @@ app.get('/', (req, res) => {
 })
 })
 
-//show
+//settings
 app.get('/settings', (req, res) => { 
     res.render('new.ejs', {ledger: Blog[req.params.index]})
     }) 
